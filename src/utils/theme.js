@@ -8,6 +8,7 @@ const theme = {
     whiteColor: '#fff',
     errorRed: '#ff5757',
     shadow: 'rgba(0,0,0,.2)',
+    mainBhautik:'#10ff00',
   },
 
   mediaQueries: {
