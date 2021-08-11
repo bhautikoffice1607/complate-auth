@@ -23,29 +23,29 @@ const Wrapper = styled.div`
 const root = document.getElementById('root');
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <>
-      <Wrapper>
-        <Loader />
-      </Wrapper>
-      <GlobalStyles />
-    </>
-  </ThemeProvider>,
-  root
+    <ThemeProvider theme={theme}>
+        <>
+            <Wrapper>
+                <Loader />
+            </Wrapper>
+            <GlobalStyles />
+        </>
+    </ThemeProvider>,
+    root
 );
 
 store.firebaseAuthIsReady.then(() => {
-  ReactDOM.render(
-    <Provider store={store}>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <>
-            <App />
-            <GlobalStyles />
-          </>
-        </ThemeProvider>
-      </BrowserRouter>
-    </Provider>,
-    root
-  );
+    ReactDOM.render(
+        <Provider store={store}>
+            <BrowserRouter>
+                <ThemeProvider theme={theme}>
+                    <>
+                        <App />
+                        <GlobalStyles />
+                    </>
+                </ThemeProvider>
+            </BrowserRouter>
+        </Provider>,
+        root
+    );
 });

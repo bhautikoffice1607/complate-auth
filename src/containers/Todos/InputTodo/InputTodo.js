@@ -28,104 +28,104 @@ const MessageWrapper = styled.div`
 `;
 
 const TodoSchema = Yup.object().shape({
-  todo: Yup.string()
-    .required('The todo is required.')
-    .min(4, 'Too short.'),
+    todo: Yup.string()
+        .required('The todo is required.')
+        .min(4, 'Too short.'),
 });
 
 const InputTodo = ({
-  editTodo,
-  close,
-  opened,
-  addTodo,
-  loading,
-  error,
-  editTodoAction,
+    editTodo,
+    close,
+    opened,
+    addTodo,
+    loading,
+    error,
+    editTodoAction,
 }) => {
-  const loadingText = editTodo ? 'Editing...' : 'Adding...';
+    const loadingText = editTodo ? 'Editing...' : 'Adding...';
 
-  return (
-    <>
-      <Modal opened={opened} close={close}>
-        <Heading noMargin size="h1" color="white">
-          {editTodo ? 'Edit your todo' : 'Add your new todo'}
-        </Heading>
-        <Heading bold size="h4" color="white">
-          {editTodo
-            ? 'Edit your todo and tap edit'
-            : 'Type your todo and press add'}
-        </Heading>
-        <Formik
-          initialValues={{
-            todo: editTodo ? editTodo.todo : '',
-          }}
-          validationSchema={TodoSchema}
-          onSubmit={async (values, { setSubmitting, resetForm }) => {
-            // send our todo
-            const res = editTodo
-              ? await editTodoAction(editTodo.id, values)
-              : await addTodo(values);
-            if (res) {
-              close();
-            }
-            setSubmitting(false);
-            resetForm();
-          }}
-        >
-          {({ isSubmitting, isValid, resetForm }) => (
-            <StyledForm>
-              <Field
-                type="text"
-                name="todo"
-                placeholder="Write your todo..."
-                component={Input}
-              />
-              <ButtonsWrapper>
-                <Button
-                  contain
-                  color="main"
-                  type="submit"
-                  disabled={!isValid || isSubmitting}
-                  loading={loading ? loadingText : null}
+    return (
+        <>
+            <Modal opened={opened} close={close}>
+                <Heading noMargin size="h1" color="white">
+                    {editTodo ? 'Edit your todo' : 'Add your new todo'}
+                </Heading>
+                <Heading bold size="h4" color="white">
+                    {editTodo
+                        ? 'Edit your todo and tap edit'
+                        : 'Type your todo and press add'}
+                </Heading>
+                <Formik
+                    initialValues={{
+                        todo: editTodo ? editTodo.todo : '',
+                    }}
+                    validationSchema={TodoSchema}
+                    onSubmit={async (values, { setSubmitting, resetForm }) => {
+                        // send our todo
+                        const res = editTodo
+                            ? await editTodoAction(editTodo.id, values)
+                            : await addTodo(values);
+                        if (res) {
+                            close();
+                        }
+                        setSubmitting(false);
+                        resetForm();
+                    }}
                 >
-                  {editTodo ? 'Edit todo' : 'Add todo'}
-                </Button>
-                <Button
-                  type="button"
-                  color="main"
-                  contain
-                  onClick={() => {
-                    close();
-                    resetForm();
-                  }}
-                >
-                  Cancel
-                </Button>
-              </ButtonsWrapper>
-              <MessageWrapper>
-                <Message error show={error}>
-                  {error}
-                </Message>
-              </MessageWrapper>
-            </StyledForm>
-          )}
-        </Formik>
-      </Modal>
-    </>
-  );
+                    {({ isSubmitting, isValid, resetForm }) => (
+                        <StyledForm>
+                            <Field
+                                type="text"
+                                name="todo"
+                                placeholder="Write your todo..."
+                                component={Input}
+                            />
+                            <ButtonsWrapper>
+                                <Button
+                                    contain
+                                    color="main"
+                                    type="submit"
+                                    disabled={!isValid || isSubmitting}
+                                    loading={loading ? loadingText : null}
+                                >
+                                    {editTodo ? 'Edit todo' : 'Add todo'}
+                                </Button>
+                                <Button
+                                    type="button"
+                                    color="main"
+                                    contain
+                                    onClick={() => {
+                                        close();
+                                        resetForm();
+                                    }}
+                                >
+                                    Cancel
+                                </Button>
+                            </ButtonsWrapper>
+                            <MessageWrapper>
+                                <Message error show={error}>
+                                    {error}
+                                </Message>
+                            </MessageWrapper>
+                        </StyledForm>
+                    )}
+                </Formik>
+            </Modal>
+        </>
+    );
 };
 
 const mapStateToProps = ({ todos }) => ({
-  loading: todos.loading,
-  error: todos.error,
+    loading: todos.loading,
+    error: todos.error,
 });
 
 const mapDispatchToProps = {
-  addTodo: actions.addTodo,
-  editTodoAction: actions.editTodo,
+    addTodo: actions.addTodo,
+    editTodoAction: actions.editTodo,
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(InputTodo);

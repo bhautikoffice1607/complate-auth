@@ -30,48 +30,48 @@ const MessageWrapper = styled.div`
 `;
 
 const DeleteTodo = ({ show, close, todo, deleteTodo, error, loading }) => {
-  return (
-    <Modal opened={show} close={close}>
-      <Heading noMargin size="h1" color="white">
-        Deleting todo
-      </Heading>
-      <Heading bold size="h4" color="white">
-        Are you sure you want to delete this todo?
-      </Heading>
-      <TodoWrapper>{todo.todo}</TodoWrapper>
-      <ButtonsWrapper>
-        <Button
-          contain
-          color="red"
-          onClick={async () => await deleteTodo(todo.id)}
-          disabled={loading}
-          loading={loading ? 'Deleting...' : null}
-        >
-          Delete
-        </Button>
-        <Button color="main" contain onClick={close}>
-          Cancel
-        </Button>
-      </ButtonsWrapper>
-      <MessageWrapper>
-        <Message error show={error}>
-          {error}
-        </Message>
-      </MessageWrapper>
-    </Modal>
-  );
+    return (
+        <Modal opened={show} close={close}>
+            <Heading noMargin size="h1" color="white">
+                Deleting todo
+            </Heading>
+            <Heading bold size="h4" color="white">
+                Are you sure you want to delete this todo?
+            </Heading>
+            <TodoWrapper>{todo.todo}</TodoWrapper>
+            <ButtonsWrapper>
+                <Button
+                    contain
+                    color="red"
+                    onClick={async () => await deleteTodo(todo.id)}
+                    disabled={loading}
+                    loading={loading ? 'Deleting...' : null}
+                >
+                    Delete
+                </Button>
+                <Button color="main" contain onClick={close}>
+                    Cancel
+                </Button>
+            </ButtonsWrapper>
+            <MessageWrapper>
+                <Message error show={error}>
+                    {error}
+                </Message>
+            </MessageWrapper>
+        </Modal>
+    );
 };
 
 const mapStateToProps = ({ todos }) => ({
-  error: todos.deleteTodo.error,
-  loading: todos.deleteTodo.loading,
+    error: todos.deleteTodo.error,
+    loading: todos.deleteTodo.loading,
 });
 
 const mapDispatchToProps = {
-  deleteTodo: actions.deleteTodo,
+    deleteTodo: actions.deleteTodo,
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(DeleteTodo);

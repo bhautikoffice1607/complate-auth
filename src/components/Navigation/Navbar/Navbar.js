@@ -13,7 +13,7 @@ const FixedWrapper = styled.header`
   left: 0;
   width: 100%;
   height: 6rem;
-
+  z-index:99;
   @media ${props => props.theme.mediaQueries.smallest} {
     display: none;
   }
@@ -26,16 +26,16 @@ const Wrapper = styled.div`
 `;
 
 const Navbar = ({ loggedIn }) => {
-  return (
-    <FixedWrapper>
-      <Container>
-        <Wrapper>
-          <Logo />
-          <NavItems loggedIn={loggedIn} />
-        </Wrapper>
-      </Container>
-    </FixedWrapper>
-  );
+    return (
+        <FixedWrapper>
+            <Container>
+                <Wrapper>
+                    <Logo />
+                    <NavItems loggedIn={loggedIn} />
+                </Wrapper>
+            </Container>
+        </FixedWrapper>
+    );
 };
 
 export default Navbar;

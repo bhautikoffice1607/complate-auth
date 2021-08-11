@@ -6,8 +6,8 @@ import authReducer from './authReducer';
 import todosReducer from './todosReducer';
 
 export default combineReducers({
-  auth: authReducer,
-  todos: todosReducer,
-  firebase: firebaseReducer,
-  firestore: firestoreReducer,
+    auth: authReducer,
+    todos: todosReducer,
+    firebase: firebaseReducer,
+    firestore: firestoreReducer,
 });

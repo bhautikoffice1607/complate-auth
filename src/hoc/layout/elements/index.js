@@ -3,8 +3,11 @@ import { Form } from 'formik';
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 140rem;
-  margin: 0 auto;
+  max-width: 1250px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto; 
   height: 100%;
 `;
 

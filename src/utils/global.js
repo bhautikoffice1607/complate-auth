@@ -28,6 +28,7 @@ export default createGlobalStyle`
     --color-white: ${props => props.theme.colors.whiteColor};
     --color-errorRed: ${props => props.theme.colors.errorRed};
     --shadow: ${props => props.theme.colors.shadow};
+    --color-mainBhautik: ${props => props.theme.colors.mainBhautik};
 
     @media ${props => props.theme.mediaQueries.small} {
       font-size: 60%;

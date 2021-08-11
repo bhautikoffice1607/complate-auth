@@ -47,6 +47,7 @@ const Menu = styled.div`
 
   @media ${props => props.theme.mediaQueries.smallest} {
     display: flex;
+    z-index: 99;
   }
 `;
 

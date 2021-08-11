@@ -24,54 +24,54 @@ const Wrapper = styled.div`
 `;
 
 const VerifyEmail = ({ sendVerification, error, loading, cleanUp }) => {
-  useEffect(() => {
-    return () => {
-      cleanUp();
-    };
-  }, [cleanUp]);
+    useEffect(() => {
+        return () => {
+            cleanUp();
+        };
+    }, [cleanUp]);
 
-  return (
-    <FormWrapper>
-      <Wrapper>
-        <Heading noMargin color="white" size="h1">
-          Verify your email
-        </Heading>
-        <Heading color="white" bold size="h4">
-          Go to your email inbox, and please verify your email.
-        </Heading>
-        <Button
-          loading={loading ? 'Sending email...' : null}
-          disabled={loading}
-          onClick={() => sendVerification()}
-        >
-          Re-send verification email
-        </Button>
-        <MessageWrapper>
-          <Message error show={error}>
-            {error}
-          </Message>
-        </MessageWrapper>
-        <MessageWrapper>
-          <Message success show={error === false}>
-            Message sent successfully!
-          </Message>
-        </MessageWrapper>
-      </Wrapper>
-    </FormWrapper>
-  );
+    return (
+        <FormWrapper>
+            <Wrapper>
+                <Heading noMargin color="white" size="h1">
+                    Verify your email
+                </Heading>
+                <Heading color="white" bold size="h4">
+                    Go to your email inbox, and please verify your email.
+                </Heading>
+                <Button
+                    loading={loading ? 'Sending email...' : null}
+                    disabled={loading}
+                    onClick={() => sendVerification()}
+                >
+                    Re-send verification email
+                </Button>
+                <MessageWrapper>
+                    <Message error show={error}>
+                        {error}
+                    </Message>
+                </MessageWrapper>
+                <MessageWrapper>
+                    <Message success show={error === false}>
+                        Message sent successfully!
+                    </Message>
+                </MessageWrapper>
+            </Wrapper>
+        </FormWrapper>
+    );
 };
 
 const mapStateToProps = ({ auth }) => ({
-  loading: auth.verifyEmail.loading,
-  error: auth.verifyEmail.error,
+    loading: auth.verifyEmail.loading,
+    error: auth.verifyEmail.error,
 });
 
 const mapDispatchToProps = {
-  sendVerification: actions.verifyEmail,
-  cleanUp: actions.clean,
+    sendVerification: actions.verifyEmail,
+    cleanUp: actions.clean,
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(VerifyEmail);
