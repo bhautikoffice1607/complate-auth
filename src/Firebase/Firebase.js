@@ -3,12 +3,13 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-  apiKey: process.env.REACT_APP_APIKEY,
-  authDomain: 'todos-auth.firebaseapp.com',
-  databaseURL: 'https://todos-auth.firebaseio.com',
-  projectId: 'todos-auth',
-  storageBucket: 'todos-auth.appspot.com',
-  messagingSenderId: '843182406370',
+    apiKey: "AIzaSyDQQEyTNuN9q57LzpiaKORhAO3l5GKKHnk",
+    authDomain: "complete-auth-2915e.firebaseapp.com",
+    projectId: "complete-auth-2915e",
+    storageBucket: "complete-auth-2915e.appspot.com",
+    messagingSenderId: "999392384569",
+    appId: "1:999392384569:web:9059b836b023ec4aad5fe8",
+    measurementId: "G-9PT9TX3TNW"
 };
 
 firebase.initializeApp(config);

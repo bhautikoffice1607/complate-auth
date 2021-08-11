@@ -16,34 +16,40 @@ const Ul = styled.ul`
 `;
 
 const NavItems = ({ mobile, clicked, loggedIn }) => {
-  let links;
-  if (loggedIn.uid) {
-    links = (
-      <Ul mobile={mobile}>
-        <NavItem mobile={mobile} clicked={clicked} link="/">
-          Todos
-        </NavItem>
-        <NavItem mobile={mobile} clicked={clicked} link="/profile">
-          Account
-        </NavItem>
-        <NavItem mobile={mobile} clicked={clicked} link="/logout">
-          Logout
-        </NavItem>
-      </Ul>
-    );
-  } else {
-    links = (
-      <Ul mobile={mobile}>
-        <NavItem mobile={mobile} clicked={clicked} link="/login">
-          Login
-        </NavItem>
-        <NavItem mobile={mobile} clicked={clicked} link="/signup">
-          Signup
-        </NavItem>
-      </Ul>
-    );
-  }
-  return <Nav mobile={mobile}>{links}</Nav>;
+    let links;
+    if (loggedIn.uid) {
+        links = (
+            <Ul mobile={mobile}>
+                <NavItem mobile={mobile} clicked={clicked} link="/">
+                    Home
+                </NavItem>
+                <NavItem mobile={mobile} clicked={clicked} link="/todos">
+                    Todos
+                </NavItem>
+                <NavItem mobile={mobile} clicked={clicked} link="/profile">
+                    Account
+                </NavItem>
+                <NavItem mobile={mobile} clicked={clicked} link="/logout">
+                    Logout
+                </NavItem>
+            </Ul>
+        );
+    } else {
+        links = (
+            <Ul mobile={mobile}>
+                <NavItem mobile={mobile} clicked={clicked} link="/">
+                    Home
+                </NavItem>
+                <NavItem mobile={mobile} clicked={clicked} link="/login">
+                    Login
+                </NavItem>
+                <NavItem mobile={mobile} clicked={clicked} link="/signup">
+                    Signup
+                </NavItem>
+            </Ul>
+        );
+    }
+    return <Nav mobile={mobile}>{links}</Nav>;
 };
 
 export default NavItems;
