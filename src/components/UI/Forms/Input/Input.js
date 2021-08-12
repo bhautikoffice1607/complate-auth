@@ -5,18 +5,18 @@ const InputWrapper = styled.div`
   width: 100%;
   display: flex;
   position: relative;
-  margin-bottom: 3.5rem;
+  margin-bottom: 20px;
   flex-direction: column;
 `;
 
 const StyledInput = styled.input`
-  padding: 1.2rem 2rem;
+  padding: 12px 15px;
   width: 100%;
   background-color: var(--color-mainLight);
   color: var(--color-white);
   font-weight: 500;
-  font-size: 1.2rem;
-  border-radius: 2rem;
+  font-size: 14px;
+  border-radius: 25px;
   border: none;
 
   &::placeholder {
@@ -39,14 +39,15 @@ const Error = styled.div`
 `;
 
 const Input = ({ field, form: { touched, errors }, ...props }) => {
-  return (
-    <InputWrapper>
-      <StyledInput {...field} {...props} />
-      <Error show={errors[field.name] && touched[field.name]}>
-        {errors[field.name]}
-      </Error>
-    </InputWrapper>
-  );
+    return (
+        <InputWrapper>
+            <StyledInput {...field} {...props} />
+            <Error show={errors[field.name] && touched[field.name]}>
+                {errors[field.name]}
+            </Error>
+        </InputWrapper>
+    );
 };
+
 
 export default Input;

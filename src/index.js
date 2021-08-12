@@ -5,6 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import styled from 'styled-components';
 
+// bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import theme from './utils/theme';
 import GlobalStyles from './utils/global';
 import store from './store';

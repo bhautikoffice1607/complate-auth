@@ -17,7 +17,8 @@ const theme = {
     medium: `only screen and (max-width: 991px)`,
     large: `only screen and (max-width: 1199px)`,
     largest: `only screen and (max-width: 1400px)`,
-  },
+  }, 
 };
+ 
 
 export default theme;

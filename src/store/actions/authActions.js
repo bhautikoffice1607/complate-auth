@@ -18,10 +18,12 @@ export const signUp = data => async (
         const user = firebase.auth().currentUser;
         await user.sendEmailVerification();
 
+        // set database entry
         await firestore
             .collection('users')
             .doc(res.user.uid)
             .set({
+                userName: data.userName,
                 firstName: data.firstName,
                 lastName: data.lastName,
             });
@@ -147,6 +149,11 @@ export const deleteUser = () => async (
 
         await firestore
             .collection('todos')
+            .doc(userId)
+            .delete();
+
+        await firestore
+            .collection('employees')
             .doc(userId)
             .delete();
 
