@@ -2,9 +2,7 @@
 
 ## [Full youtube tutorial here](https://www.youtube.com/watch?v=OHQvbiQpGC8&list=PLoH-uUW2wEIQU3diUzrpFaFOcXM8z8gBc&fbclid=IwAR1wppn59LBfNen_Lpq0mEFaqxQymX9fAzbpeVht3TuShkXidaBVJ9fyhhU)
 
-![Thumbnail](1.png)
-![Thumbnail2](2.png)
-![Thumbnail3](3.png)
+
 
 A todo App with Authentication using Firebase. Todos are saved using Firestore.
 
